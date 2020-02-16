@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 import { Container } from './styles';
@@ -7,6 +7,14 @@ const Table = ({ urls }) => {
   const [showModal, setShowModal] = useState(false);
   const [files, setFiles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", (e)=>{
+      if(e.target.className === "modal-bg") {
+        setShowModal(false)
+      }
+    });
+  });
 
   async function handleElement(e) {
     console.log(files)
@@ -26,7 +34,7 @@ const Table = ({ urls }) => {
     <>
       <Container>
         {showModal ? (
-          <div className="modal-bg" onClick={() => setShowModal(false)}>
+          <div className="modal-bg">
             {isLoading ? (<ReactLoading type= "spin" color= "#ffffff"/>) :
             (
               <div className="modal-content">

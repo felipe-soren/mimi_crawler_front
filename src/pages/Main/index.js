@@ -9,16 +9,19 @@ const Main = () => {
   const [urls, setUrl] = useState([]);
   const [inputUrl, setInputUrl] = useState("");
   const [isLoading, setIsloading] = useState(false);
+  const [error, setError] = useState(false)
 
   async function handleSearch (e) {
     if (inputUrl === "") return;
     e.preventDefault()
     setIsloading(true)
+    setError(false)
     try {
       const result = await axios.post('https://cors-anywhere.herokuapp.com/https://s6lcxof4pj.execute-api.us-east-1.amazonaws.com/dev/list-pages', 
       {"url": `${inputUrl}`})
       if (result.data.length === undefined) {
         setIsloading(false)
+        setError(true)
         return ;
       } else {
         setUrl(result.data)
@@ -35,7 +38,7 @@ const Main = () => {
       <Container>
         <div className="content">
         <Form
-          withError=""
+          withError={error}
           onSubmit={(e) => handleSearch(e)}
           accept-charset="ISO-8859-1"
         >
