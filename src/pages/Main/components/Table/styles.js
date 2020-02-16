@@ -11,6 +11,7 @@ table {
   width: 70%;
   border-collapse:separate;
   border-spacing: 0;
+  table-layout:fixed;
 }
 
 tr {
@@ -79,6 +80,8 @@ td:hover {
 
   li, ul{
     padding: 5px;
+    word-wrap: break-word;     
+    overflow-wrap: break-word; 
   }
 
   a{
