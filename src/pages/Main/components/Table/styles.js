@@ -47,6 +47,8 @@ td {
   padding-left: 20px;
   color: #666666;
   border-bottom: 1px solid #f2f2f2;
+  word-wrap: break-word;     
+    overflow-wrap: break-word; 
   cursor: pointer;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-import { Container } from './styles';
+import { Container } from './styles.js';
 
 const Table = ({ urls }) => {
   const [showModal, setShowModal] = useState(false);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import ReactLoading from 'react-loading';
 import Header from './components/Header';
-import { Container, Form } from './styles';
+import { Container, Form } from './styles.js';
 import Table from './components/Table';
 import axios from 'axios';
 
