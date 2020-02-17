@@ -10,7 +10,8 @@ const Table = ({ urls }) => {
 
   useEffect(() => {
     document.addEventListener("mousedown", (e)=>{
-      if(e.target.className === "modal-bg") {
+      console.log(e.target.className)
+      if(e.target.className === "modal-bg" || e.target.className === "close") {
         setShowModal(false)
       }
     });
@@ -38,9 +39,12 @@ const Table = ({ urls }) => {
             {isLoading ? (<ReactLoading type= "spin" color= "#ffffff"/>) :
             (
               <div className="modal-content">
-              <h1>
-                Files
-              </h1>
+                <div className="modal-header">
+                  <h1>Files</h1>
+                  <button className="close" onClick={()=> setShowModal(false)}>
+                    <span aria-hidden="true">x</span>
+                  </button>
+                </div>
               <ul>
                 {files.length === 0 ? (
                 <li>
@@ -51,6 +55,9 @@ const Table = ({ urls }) => {
                     ))
                 )}
               </ul>
+              <div className="modal-footer">
+                <button className="btn" onClick={() => setShowModal(false)}>Close</button>
+              </div>
             </div>
             )}
           </div>
