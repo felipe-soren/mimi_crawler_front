@@ -46,7 +46,7 @@ const Table = ({ urls }) => {
                   </button>
                 </div>
               <ul>
-                {files.length === 0 ? (
+                {files.length === 0 || files.length === undefined ? (
                 <li>
                   No files to display
                 </li>) : (

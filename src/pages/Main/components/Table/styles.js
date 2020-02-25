@@ -144,6 +144,12 @@ td:hover {
     justify-content: flex-start;
   }
 
+  ul {
+    overflow-y: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+  }
+
   li {
     text-align: left;
     padding: 10px;
